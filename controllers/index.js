@@ -9,7 +9,18 @@ manage.getAlbum();
 // let album = new Album(); // dung album ngoai button khi add vao bi thay doi het album truoc do
 document.getElementById("btnCapNhatAlbum").disabled = true;
 
+// let validateAlbum = (albumName) => {
 
+//     let index = manage.albumList.findIndex(
+//         (item) => item.tenAlbum === tenAlbum
+//     );
+//     console.log(index);
+
+//     if (index !== -1) {
+//         return alert("Your Album Name existed!\nPlease input another Album Name.");
+//     }
+
+// };
 
 // BTD ADDALBUM
 document.getElementById("btnThemAlbum").onclick = (event) => {
@@ -22,10 +33,10 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
         let value = input.value;
         album[id] = value;
     }
-    
+
     console.log(album);
     manage.addAlbum(album);
-    // manage.validateAlbumName(album.tenAlbum);
+    manage.validateAlbumName(album.tenAlbum);
     manage.saveAlbum();
     renderAlbum();
     console.log('id cua album ban dau', album.id);
@@ -73,7 +84,7 @@ window.removeAlbum = (albumName) => {
 
 //  BTN EDIT
 window.editAlbum = (albumName) => {
-    document.getElementById("btnThemAlbum").disabled=true;
+    document.getElementById("btnThemAlbum").disabled = true;
     document.getElementById("btnCapNhatAlbum").disabled = false;
 
     manage.editAlbum(albumName);
@@ -93,13 +104,19 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
         let value = inputUpdated.value;
         albumUpdated[id] = value;
     }
-    // albumUpdated.id = Date.parse(new Date());
-    console.log('id cua album update:', albumUpdated.id);
+
     manage.updateAlbum(albumUpdated);
+    // validateAlbum(albumUpdated.tenAlbum);
     manage.validateAlbumName(albumUpdated.tenAlbum);
+    // manage.saveAlbum();
     renderAlbum();
+    // location.reload();
+    //disable sau khi bấm update
+    document.getElementById("btnThemAlbum").disabled=false;
+    document.getElementById("btnCapNhatAlbum").disabled = true;
 };
-/* 
+
+/*
 1/ tìm index ở btn capnhat done
 2/ validate tenalbum ở btn them va btn capnhat
 3/ disable ô input hợp lí

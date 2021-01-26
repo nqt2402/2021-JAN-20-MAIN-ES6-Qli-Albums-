@@ -1,7 +1,6 @@
-
 export class Manage {
     albumList = [];
-    currentIdUpdate='';
+    currentIdUpdate = '';
     constructor() {
 
     }
@@ -26,12 +25,12 @@ export class Manage {
         // let index = this.albumList.findIndex(
         //     (item) => item.tenAlbum === albumName
         // );
-        
+
         let index = this.albumList.findIndex(
             (item) => item.tenAlbum === albumName
         );
-        this.currentIdUpdate=this.albumList[index].id;
-    
+        this.currentIdUpdate = this.albumList[index].id;
+
         console.log(this.currentIdUpdate);
         let edit = this.albumList[index];
         document.getElementById("linkAnh").value = edit.linkAnh;
@@ -49,10 +48,6 @@ export class Manage {
         console.log(index);
         // this.albumList[index] = { ...album };
 
-        // let updated = this.albumList[index];
-        // console.log(updated);
-        // console.log(this.albumList[index]);
-
         this.albumList[index].linkAnh = album.linkAnh;
         this.albumList[index].tenAlbum = album.tenAlbum;
         this.albumList[index].moTa = album.moTa;
@@ -63,8 +58,8 @@ export class Manage {
     validateAlbumName(tenAlbum) {
         let index = this.albumList.findIndex(
             (item) => item.tenAlbum === tenAlbum
-            );
-            console.log(index);
+        );
+        console.log(index);
 
         if (index !== -1) {
             alert("Your Album Name existed! Please input another Album Name.");
