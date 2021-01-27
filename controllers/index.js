@@ -1,31 +1,15 @@
 import { Album } from "../models/Album.js";
 import { Manage } from "../models/Manage.js";
 
-
-
 let manage = new Manage();
 manage.getAlbum();
 
 // let album = new Album(); // dung album ngoai button khi add vao bi thay doi het album truoc do
 document.getElementById("btnCapNhatAlbum").disabled = true;
 
-// let validateAlbum = (albumName) => {
-
-//     let index = manage.albumList.findIndex(
-//         (item) => item.tenAlbum === tenAlbum
-//     );
-//     console.log(index);
-
-//     if (index !== -1) {
-//         return alert("Your Album Name existed!\nPlease input another Album Name.");
-//     }
-
-// };
-
 // BTD ADDALBUM
 document.getElementById("btnThemAlbum").onclick = (event) => {
     event.preventDefault();
-    // create album from class
     let album = new Album();
     let arrInput = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
     for (let input of arrInput) {
@@ -33,14 +17,11 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
         let value = input.value;
         album[id] = value;
     }
-
-    console.log(album);
     manage.addAlbum(album);
+    console.log(album.id);
     manage.validateAlbumName(album.tenAlbum);
     manage.saveAlbum();
     renderAlbum();
-    console.log('id cua album ban dau', album.id);
-
 };
 
 const renderAlbum = () => {
@@ -107,7 +88,7 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
 
     manage.updateAlbum(albumUpdated);
     // validateAlbum(albumUpdated.tenAlbum);
-    manage.validateAlbumName(albumUpdated.tenAlbum);
+    manage.validateAlbumName(albumUpdated);
     // manage.saveAlbum();
     renderAlbum();
     // location.reload();
@@ -118,7 +99,7 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
 
 /*
 1/ tìm index ở btn capnhat done
-2/ validate tenalbum ở btn them va btn capnhat
-3/ disable ô input hợp lí
+2/ validate tenalbum ở btn them va btn capnhat ???
+3/ disable ô input hợp lí ???
 4/ return the loai album done
 */
