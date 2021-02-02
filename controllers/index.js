@@ -19,7 +19,7 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
     }
     manage.addAlbum(album);
     console.log(album.id);
-    manage.validateAlbumName(album.tenAlbum);
+    // manage.validateAlbumName(album.tenAlbum);
     manage.saveAlbum();
     renderAlbum();
 };
@@ -87,7 +87,6 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     }
 
     manage.updateAlbum(albumUpdated);
-    // validateAlbum(albumUpdated.tenAlbum);
     manage.validateAlbumName(albumUpdated);
     // manage.saveAlbum();
     renderAlbum();
