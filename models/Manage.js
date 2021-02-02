@@ -7,7 +7,7 @@ export class Manage {
     addAlbum(alb) {
         this.albumList.push(alb);
         // console.log(this.albumList);
-        console.log('id khi bam add',alb.id);
+        console.log('id khi bam add', alb.id);
     }
 
     // 2 func removeAlbum & editAlbum BẮT BUỘC DÙNG tenAlbum
@@ -21,14 +21,11 @@ export class Manage {
     }
 
     editAlbum(albumName) {
-        // let index = this.albumList.findIndex(
-        //     (item) => item.tenAlbum === albumName
-        // );
         let index = this.albumList.findIndex(
             (item) => item.tenAlbum === albumName
         );
         this.currentIdUpdate = this.albumList[index].id;
-        console.log('id edit',this.currentIdUpdate);
+        console.log('id edit', this.currentIdUpdate);
         let edit = this.albumList[index];
         document.getElementById("linkAnh").value = edit.linkAnh;
         document.getElementById("tenAlbum").value = edit.tenAlbum;
@@ -48,26 +45,26 @@ export class Manage {
         this.albumList[index].tenAlbum = album.tenAlbum;
         this.albumList[index].moTa = album.moTa;
         this.albumList[index].loaiAlbum = album.loaiAlbum;
-        console.log('id update',this.currentIdUpdate);
-        console.log('id album',album.id);
+        console.log('id update', this.currentIdUpdate);
+        console.log('id album', album.id);
     }
 
     //kiểm tra trùng tên album khi bắt đầu thêm album vào
     validateAlbumName(album) {
-        // let index = this.albumList.findIndex(
-        //     (item) => item.tenAlbum === tenAlbum
-        // );
-        // console.log(index);
         let index = this.albumList.findIndex(
-            (item) => item.id === this.currentIdUpdate
+            (item) => item.tenAlbum === tenAlbum
         );
-        this.currentIdUpdate = this.albumList[index].id;
-        console.log('id update validate',this.currentIdUpdate);
         console.log(index);
+        // let index = this.albumList.findIndex(
+        //     (item) => item.id === this.currentIdUpdate
+        // );
+        // this.currentIdUpdate = this.albumList[index].id;
+        // console.log('id update validate',this.currentIdUpdate);
+        // console.log(index);
 
         if (index !== -1) {
             alert("Your Album Name existed! Please input another Album Name.");
-            // updateAlbum(index);
+            return;
         }
     }
 

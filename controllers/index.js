@@ -91,7 +91,7 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     manage.validateAlbumName(albumUpdated);
     // manage.saveAlbum();
     renderAlbum();
-    // location.reload();
+
     //disable sau khi bấm update
     document.getElementById("btnThemAlbum").disabled=false;
     document.getElementById("btnCapNhatAlbum").disabled = true;
