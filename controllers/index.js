@@ -18,7 +18,6 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
         album[id] = value;
     }
     manage.addAlbum(album);
-    console.log(album.id);
     // manage.validateAlbumName(album.tenAlbum);
     manage.saveAlbum();
     renderAlbum();
@@ -35,12 +34,13 @@ const renderAlbum = () => {
             </div>
             <div class="card-body">
                 <h3>${obj.tenAlbum}</h3>
-                <p class="card-text"> ${obj.moTa} </p>
+                <p class="card-text">Mô tả : ${obj.moTa} </p>
                 <p class="card-text">Thể loại: ${obj.loaiAlbum}</p>
+                <p class="card-text">id : ${obj.id} </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <button onclick="editAlbum('${obj.tenAlbum}')" type="button" class="btn btn-success text-white btn-sm btn-outline-secondary mr-2">Chỉnh sửa</button>
-                        <button onclick="removeAlbum('${obj.tenAlbum}')" type="button" class="btn btn-danger text-white btn-sm btn-outline-secondary">Xóa</button>
+                        <button onclick="removeAlbum(${obj.id})" type="button" class="btn btn-danger text-white btn-sm btn-outline-secondary">Xóa</button>
                     </div>
                 </div>
             </div>
@@ -54,10 +54,10 @@ const renderAlbum = () => {
 renderAlbum();
 
 //  BTN REMOVE
-window.removeAlbum = (albumName) => {
+window.removeAlbum = (id) => {
     let cfm = confirm("This album will be removed. Are you sure?");
     if (cfm) {
-        manage.removeAlbum(albumName);
+        manage.removeAlbum(id);
         manage.saveAlbum();
         renderAlbum();
     }
@@ -78,6 +78,10 @@ window.editAlbum = (albumName) => {
 document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     event.preventDefault();
 
+    //disable sau khi bấm update
+    document.getElementById("btnThemAlbum").disabled = false;
+    document.getElementById("btnCapNhatAlbum").disabled = true;
+
     let albumUpdated = new Album();
     let arrInput = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
     for (let inputUpdated of arrInput) {
@@ -91,9 +95,9 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     // manage.saveAlbum();
     renderAlbum();
 
-    //disable sau khi bấm update
-    document.getElementById("btnThemAlbum").disabled=false;
-    document.getElementById("btnCapNhatAlbum").disabled = true;
+    // location.reload();
+    document.getElementById("btnThemAlbum").disabled = false;
+    document.getElementById("btnCapNhatAlbum").disabled = false;
 };
 
 /*
