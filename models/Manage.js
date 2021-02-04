@@ -3,11 +3,14 @@ export class Manage {
     currentIdUpdate = '';
     constructor() {
     }
-
-    validateInputIsBlank(value) {
-        if (value.trim() === '') {
-            
+    validateInputIsBlank(alb) {
+        if (alb.tenAlbum.trim() === '' &&
+            alb.moTa.trim() === '' &&
+            alb.linkAnh.trim() === '') {
+            alert('Please fill in your form');
+            return;
         }
+        return this.validateNewAlbum(alb);
     }
 
     validateNewAlbum(alb) {

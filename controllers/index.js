@@ -16,7 +16,7 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
         let value = input.value;
         album[id] = value;
     }
-    manage.validateNewAlbum(album);
+    manage.validateInputIsBlank(album);
     manage.saveAlbum();
     renderAlbum();
 };
@@ -83,10 +83,7 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     }
 
     albumUpdated.id = manage.currentIdUpdate;
-
     manage.validateUpdateAlbum(albumUpdated);
     manage.saveAlbum();
     renderAlbum();
-
-
 };
