@@ -63,7 +63,6 @@ export class Manage {
             return;
         }
         return this.updateAlbum(album);
-
     }
 
     updateAlbum(album) {

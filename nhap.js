@@ -14,15 +14,15 @@ https: //images.unsplash.com/photo-1542080255-e564af7ae266?ixlib=rb-1.2.1&ixid=M
 
 */
 
-let arrI = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
-let obj_HienTai = {};
-for (let objTag of arrI) {
-    let id = objTag.id;
-    let value = objTag.value;
-    obj_HienTai[id] = value;
-}
-console.log(obj_HienTai);
-console.log(album);
+// let arrI = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
+// let obj_HienTai = {};
+// for (let objTag of arrI) {
+//     let id = objTag.id;
+//     let value = objTag.value;
+//     obj_HienTai[id] = value;
+// }
+// console.log(obj_HienTai);
+// console.log(album);
 // let obj_Update = {};
 // for (let update_Tag of this.albumList) {
 
