@@ -27,3 +27,40 @@ console.log(album);
 // for (let update_Tag of this.albumList) {
 
 // }
+
+    //kiểm tra trùng tên album khi bắt đầu thêm album vào
+    // validateAlbumName(album) {
+    //     let index = this.albumList.findIndex(
+    //         (item) => item.tenAlbum === album.tenAlbum
+    //     );
+    //     if (index !== -1) {
+    //         alert("Your Album Name existed! Please input another Album Name.");
+    //         return;
+    //     }
+    //     return this.updateAlbum();
+        // let index = this.albumList.findIndex(
+        //     (item) => item.id === this.currentIdUpdate
+        // );
+
+        // let index = this.albumList.findIndex(
+        //     (item) => item.id === album.id
+        // );
+        // console.log(index);
+
+        // document.getElementById("tenAlbum").value
+
+        // for (let object of this.albumList) {
+        //     if (this.albumList[index].tenAlbum === object.tenAlbum) {
+        //         console.log('duplicate');
+        //         return;
+        //     }
+        // }
+
+        // let duplicateName = this.albumList[index].tenAlbum.includes(album.tenAlbum);
+        // console.log(duplicateName);
+
+        // if (duplicateName) {
+        //     alert('Your Album Name existed! Please input another Album Name.');
+        //     return;
+        // }
+    // }

@@ -4,7 +4,6 @@ import { Manage } from "../models/Manage.js";
 let manage = new Manage();
 manage.getAlbum();
 
-// let album = new Album(); // dung album ngoai button khi add vao bi thay doi het album truoc do
 document.getElementById("btnCapNhatAlbum").disabled = true;
 
 // BTD ADDALBUM
@@ -17,8 +16,7 @@ document.getElementById("btnThemAlbum").onclick = (event) => {
         let value = input.value;
         album[id] = value;
     }
-    manage.addAlbum(album);
-    // manage.validateAlbumName(album.tenAlbum);
+    manage.validateNewAlbum(album);
     manage.saveAlbum();
     renderAlbum();
 };
@@ -39,7 +37,7 @@ const renderAlbum = () => {
                 <p class="card-text">id : ${obj.id} </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button onclick="editAlbum('${obj.tenAlbum}')" type="button" class="btn btn-success text-white btn-sm btn-outline-secondary mr-2">Chỉnh sửa</button>
+                        <button onclick="editAlbum(${obj.id})" type="button" class="btn btn-success text-white btn-sm btn-outline-secondary mr-2">Chỉnh sửa</button>
                         <button onclick="removeAlbum(${obj.id})" type="button" class="btn btn-danger text-white btn-sm btn-outline-secondary">Xóa</button>
                     </div>
                 </div>
@@ -54,10 +52,10 @@ const renderAlbum = () => {
 renderAlbum();
 
 //  BTN REMOVE
-window.removeAlbum = (id) => {
-    let cfm = confirm("This album will be removed. Are you sure?");
+window.removeAlbum = (albumId) => {
+    let cfm = confirm("THIS ALBUM WILL BE REMOVED.\nARE YOU SURE?");
     if (cfm) {
-        manage.removeAlbum(id);
+        manage.removeAlbum(albumId);
         manage.saveAlbum();
         renderAlbum();
     }
@@ -65,23 +63,17 @@ window.removeAlbum = (id) => {
 
 //  BTN EDIT
 window.editAlbum = (albumName) => {
-    document.getElementById("btnThemAlbum").disabled = true;
-    document.getElementById("btnCapNhatAlbum").disabled = false;
-
     manage.editAlbum(albumName);
     manage.saveAlbum();
-    // console.log(album.id);
-    // manage.renderAlbum();
+    renderAlbum();
 }
 
 //  BTN CAPNHATALBUM
 document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     event.preventDefault();
 
-    //disable sau khi bấm update
-    document.getElementById("btnThemAlbum").disabled = false;
-    document.getElementById("btnCapNhatAlbum").disabled = true;
-
+    // document.getElementById("btnThemAlbum").disabled = true;
+    // document.getElementById("btnCapNhatAlbum").disabled = false;
     let albumUpdated = new Album();
     let arrInput = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
     for (let inputUpdated of arrInput) {
@@ -90,19 +82,11 @@ document.getElementById("btnCapNhatAlbum").onclick = (event) => {
         albumUpdated[id] = value;
     }
 
-    manage.updateAlbum(albumUpdated);
-    manage.validateAlbumName(albumUpdated);
-    // manage.saveAlbum();
+    albumUpdated.id = manage.currentIdUpdate;
+
+    manage.validateUpdateAlbum(albumUpdated);
+    manage.saveAlbum();
     renderAlbum();
 
-    // location.reload();
-    document.getElementById("btnThemAlbum").disabled = false;
-    document.getElementById("btnCapNhatAlbum").disabled = false;
-};
 
-/*
-1/ tìm index ở btn capnhat done
-2/ validate tenalbum ở btn them va btn capnhat ???
-3/ disable ô input hợp lí ???
-4/ return the loai album done
-*/
+};
