@@ -72,8 +72,6 @@ window.editAlbum = (albumName) => {
 document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     event.preventDefault();
 
-    // document.getElementById("btnThemAlbum").disabled = true;
-    // document.getElementById("btnCapNhatAlbum").disabled = false;
     let albumUpdated = new Album();
     let arrInput = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
     for (let inputUpdated of arrInput) {
