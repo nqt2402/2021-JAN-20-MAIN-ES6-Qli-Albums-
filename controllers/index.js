@@ -71,7 +71,6 @@ window.editAlbum = (albumName) => {
 //  BTN CAPNHATALBUM
 document.getElementById("btnCapNhatAlbum").onclick = (event) => {
     event.preventDefault();
-
     let albumUpdated = new Album();
     let arrInput = document.querySelectorAll("#inputFromUI input, #inputFromUI select");
     for (let inputUpdated of arrInput) {
