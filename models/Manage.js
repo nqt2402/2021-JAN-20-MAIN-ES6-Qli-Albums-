@@ -3,30 +3,30 @@ export class Manage {
     currentIdUpdate = '';
     constructor() {
     }
-    validateInputIsBlank(alb) {
-        if (alb.tenAlbum.trim() === '' &&
-            alb.moTa.trim() === '' &&
-            alb.linkAnh.trim() === '') {
+    validateInputIsBlank(album) {
+        if (album.tenAlbum.trim() === '' &&
+            album.moTa.trim() === '' &&
+            album.linkAnh.trim() === '') {
             alert('Please fill in your form');
             return;
         }
-        return this.validateNewAlbum(alb);
+        return this.validateNewAlbum(album);
     }
 
-    validateNewAlbum(alb) {
+    validateNewAlbum(album) {
         let index = this.albumList.findIndex(
-            (item) => item.tenAlbum === alb.tenAlbum
+            (item) => item.tenAlbum === album.tenAlbum
         );
         if (index !== -1) {
             alert("Your Album Name existed! Please input another Album Name.");
             return;
         }
-        return this.addAlbum(alb);
+        return this.addAlbum(album);
     }
 
-    addAlbum(alb) {
-        this.albumList.push(alb);
-        this.currentIdUpdate = alb.id;
+    addAlbum(album) {
+        this.albumList.push(album);
+        this.currentIdUpdate = album.id;
     }
 
     removeAlbum(albId) {

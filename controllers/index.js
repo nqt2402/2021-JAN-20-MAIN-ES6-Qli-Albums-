@@ -53,7 +53,7 @@ renderAlbum();
 
 //  BTN REMOVE
 window.removeAlbum = (albumId) => {
-    let cfm = confirm("THIS ALBUM WILL BE REMOVED.\nARE YOU SURE?");
+    let cfm = confirm("This album will be removed.\nARE YOU SURE?");
     if (cfm) {
         manage.removeAlbum(albumId);
         manage.saveAlbum();
