@@ -7,7 +7,7 @@ export class Manage {
         if (album.tenAlbum.trim() === '' &&
             album.moTa.trim() === '' &&
             album.linkAnh.trim() === '') {
-            alert('Please fill in your form');
+            document.getElementById("warning").innerHTML = 'PLEASE FILL IN YOUR FORM !';
             return;
         }
         return this.validateNewAlbum(album);
@@ -18,7 +18,8 @@ export class Manage {
             (item) => item.tenAlbum === album.tenAlbum
         );
         if (index !== -1) {
-            alert("Your Album Name existed! Please input another Album Name.");
+            document.getElementById("warning").innerHTML = "EXISTED! Please input another Album Name.";
+            // alert("Your Album Name existed! Please input another Album Name.");
             return;
         }
         return this.addAlbum(album);
@@ -59,7 +60,8 @@ export class Manage {
             (item) => item.tenAlbum === album.tenAlbum
         );
         if (index !== -1) {
-            alert("Your Album Name existed! Please input another Album Name.");
+            document.getElementById("warning").innerHTML = "EXISTED! Please input another Album Name.";
+            // alert("Your Album Name existed! Please input another Album Name.");
             return;
         }
         return this.updateAlbum(album);
