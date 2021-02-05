@@ -19,7 +19,6 @@ export class Manage {
         );
         if (index !== -1) {
             document.getElementById("warning").innerHTML = "EXISTED! Please input another Album Name.";
-            // alert("Your Album Name existed! Please input another Album Name.");
             return;
         }
         return this.addAlbum(album);
@@ -61,7 +60,6 @@ export class Manage {
         );
         if (index !== -1) {
             document.getElementById("warning").innerHTML = "EXISTED! Please input another Album Name.";
-            // alert("Your Album Name existed! Please input another Album Name.");
             return;
         }
         return this.updateAlbum(album);
