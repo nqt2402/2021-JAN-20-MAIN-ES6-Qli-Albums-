@@ -46,6 +46,7 @@ export class Manage {
         let index = this.albumList.findIndex(
             (item) => item.id === albumID
         );
+        console.log(index);
         this.currentIdUpdate = albumID;
         let edit = this.albumList[index];
         document.getElementById("linkAnh").value = edit.linkAnh;

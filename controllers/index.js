@@ -52,18 +52,18 @@ const renderAlbum = () => {
 renderAlbum();
 
 //  BTN REMOVE
-window.removeAlbum = (albumId) => {
+window.removeAlbum = (albumID) => {
     let cfm = confirm("THIS ALBUM WILL BE REMOVED.\nAre you sure");
     if (cfm) {
-        manage.removeAlbum(albumId);
+        manage.removeAlbum(albumID);
         manage.saveAlbum();
         renderAlbum();
     }
 }
 
 //  BTN EDIT
-window.editAlbum = (albumName) => {
-    manage.editAlbum(albumName);
+window.editAlbum = (albumID) => {
+    manage.editAlbum(albumID);
     manage.saveAlbum();
     renderAlbum();
 }
